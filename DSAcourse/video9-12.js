@@ -1,0 +1,101 @@
+// class Node {
+//     constructor(value){
+//         this.value = value;
+//         this.next = null;
+//     }
+// }
+
+// class Queue {
+//     constructor(){
+//         this.first = null;
+//         this.last = null;
+//         this.length = 0;
+//     }
+
+//     peek(){
+//         return this.first
+//     }
+//     enqueue(value){
+//         const newNode = new Node (value);
+//         if(this.length === 0){
+//             this.first = newNode;
+//             this.last = newNode;
+//             this.length++;
+//             return this;
+//         }
+//         this.last.next = newNode;
+//         this.last = newNode;
+        
+//         this.length++;
+//         return this;
+//     }
+//     dequeue(){
+//         if(!this.first){
+//             return null;
+//         }
+//         if(this.first == this.last){
+//             this.last = null;
+//             this.length--;
+//             return this;
+//         }
+//         //holdPointer = this.first;
+//         this.first = this.first.next ;
+//         this.length--;
+//         return this;
+
+//     }
+// }
+
+
+// const que = new Queue();
+// //console.log(que.peek());
+// console.log(que.enqueue('google'));
+// console.log(que.enqueue('udemy'));
+// console.log(que.enqueue('Uber'));
+// console.log(que.dequeue());
+
+
+
+class Node {
+    constructor(value){
+        this.value = value;
+        this.next = null;
+    }
+}
+
+class Queue{
+    constructor(){
+        this.first = null;
+        this.last = null;
+        this.length = 0; 
+    }
+    peek(){
+        return this.first;
+    }
+    enqueue(value){
+        const newNode = new Node(value);
+        if(!this.length){
+            this.first = newNode;
+            this.last = newNode;
+            this.length++;
+            return this;
+        }
+        this.last.next = newNode;
+        this.last = newNode;
+        this.length++;
+        return this;
+    }
+    denqueue(){
+        if(!this.length){
+            return null;
+        }
+        if(this.first == this.last){
+            this.last = null;
+            this.length--;
+            return this;
+        }
+        this.first = this.first.next;
+        this.length--;
+        return this
+    }       
+}
